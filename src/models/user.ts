@@ -24,7 +24,7 @@ const userSchema = new Schema<IUser>(
     },
     polls: {
       type: [Schema.Types.ObjectId],
-      ref: "users",
+      ref: "polls",
       default: null,
     },
   },

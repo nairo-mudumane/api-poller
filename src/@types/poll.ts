@@ -1,21 +1,18 @@
 import { IMongoData } from "./mongo";
+import { IUser } from "./user";
 
 export type IPollState = "open" | "closed";
-
-export interface IPollOptionVote {
-  total: number;
-  ips: string[];
-}
 
 export interface IPollOption {
   label: string;
   key: string;
-  vote: IPollOptionVote; // or ip's string[] ??
+  vote: string[];
 }
 
 export interface IPoll extends IMongoData {
-  createdBy: string;
+  createdBy: string | IUser;
   state: IPollState;
   title: string;
   options: IPollOption[];
+  multi: boolean;
 }
