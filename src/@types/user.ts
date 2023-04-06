@@ -7,12 +7,20 @@ export interface IUser extends IMongoData {
   polls: IPoll[] | null;
   password: string | null;
   googleId: string | null;
+  token?: string;
 }
 
-export type INewUser = Omit<
-  Partial<IUser>,
-  "_id" | "createdAt" | "updatedAt" | "googleId" | "polls"
->;
+type excludedFields =
+  | "_id"
+  | "createdAt"
+  | "updatedAt"
+  | "googleId"
+  | "polls"
+  | "token";
+
+export type INewUser = Omit<Partial<IUser>, excludedFields>;
+
+export type IUserLogin = Partial<{ email: string; password: string }>;
 
 export interface INewGoogleUser extends Omit<INewUser, "password"> {
   googleId?: string;

@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import bcrypt from "bcryptjs";
 import { INewUser } from "../../@types";
 import { userModel } from "../../models";
 import { checkSignupFields } from "./utils";
@@ -16,7 +17,10 @@ export async function Signup(request: Request, response: Response) {
   }
 
   try {
-    const created = await userModel.create(payload);
+    let data: INewUser = { ...payload };
+    data["password"] = await bcrypt.hash(payload.password!, 10);
+
+    const created = await userModel.create(data);
     return response
       .status(201)
       .json({ message: "created", data: { _id: created._id } });
