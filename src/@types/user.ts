@@ -9,4 +9,11 @@ export interface IUser extends IMongoData {
   googleId: string | null;
 }
 
-export type INewUser = Omit<Partial<IUser>, "_id" | "createdAt" | "updatedAt">;
+export type INewUser = Omit<
+  Partial<IUser>,
+  "_id" | "createdAt" | "updatedAt" | "googleId" | "polls"
+>;
+
+export interface INewGoogleUser extends Omit<INewUser, "password"> {
+  googleId?: string;
+}
