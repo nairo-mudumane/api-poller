@@ -16,3 +16,11 @@ export interface IPoll extends IMongoData {
   options: IPollOption[];
   multi: boolean;
 }
+
+export type INewPollOption = Partial<Omit<IPollOption, "vote">>;
+
+export interface INewPoll {
+  title?: string;
+  multi?: boolean;
+  options?: INewPollOption[];
+}
