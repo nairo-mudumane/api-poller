@@ -1,5 +1,5 @@
 import { z as zod } from "zod";
-import { INewUser, IUserLogin } from "../../@types";
+import { INewUser, IUserLogin } from "../@types";
 
 export function checkSignupFields(obj: INewUser): void {
   try {

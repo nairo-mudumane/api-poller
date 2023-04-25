@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 import bcrypt from "bcryptjs";
 import { INewUser } from "../../@types";
+import { checkSignupFields } from "../utils";
 import { userModel } from "../../models";
-import { checkSignupFields } from "./utils";
 
 export async function Signup(request: Request, response: Response) {
   const payload = request.body as INewUser;

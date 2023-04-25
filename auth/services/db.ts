@@ -19,7 +19,7 @@ export async function connectToDatabase(): Promise<void> {
       });
     } else throw new Error("No database url provided");
   } catch (error) {
-    console.error((error as Error).message);
+    console.error(error);
     process.exit(1);
   }
 

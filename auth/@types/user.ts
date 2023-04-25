@@ -1,10 +1,8 @@
-import { IMongoData } from "./mongo";
-import { IPoll } from "./poll";
+import { IMongoData } from "../../shared/@types";
 
 export interface IUser extends IMongoData {
   name: string;
   email: string;
-  polls: IPoll[] | null;
   password: string | null;
   googleId: string | null;
   token?: string;

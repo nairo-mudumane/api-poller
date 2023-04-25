@@ -2,8 +2,8 @@ import { Request, Response } from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { IUser, IUserLogin } from "../../@types";
+import { checkLoginFields } from "../utils";
 import { userModel } from "../../models";
-import { checkLoginFields } from "./utils";
 
 export async function login(request: Request, response: Response) {
   const { email, password } = request.body as IUserLogin;

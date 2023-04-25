@@ -22,11 +22,6 @@ const userSchema = new Schema<IUser>(
       default: null,
       select: false,
     },
-    polls: {
-      type: [Schema.Types.ObjectId],
-      ref: "polls",
-      default: null,
-    },
   },
   { timestamps: true }
 );
