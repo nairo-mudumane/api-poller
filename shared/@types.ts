@@ -1,7 +1,5 @@
-import { ObjectId } from "mongoose";
-
 export interface IMongoData {
-  _id: ObjectId;
+  _id: string;
   createdAt?: string;
   updatedAt?: string;
 }
