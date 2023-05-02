@@ -6,6 +6,8 @@ export interface IUser extends IMongoData {
   password: string | null;
   googleId: string | null;
   token?: string;
+  resetPasswordToken: string | null;
+  restPasswordTokenExpiresIn: Date | null;
 }
 
 type excludedFields =

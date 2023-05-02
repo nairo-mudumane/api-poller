@@ -22,6 +22,16 @@ const userSchema = new Schema<IUser>(
       default: null,
       select: false,
     },
+    resetPasswordToken: {
+      type: String,
+      default: null,
+      select: false,
+    },
+    restPasswordTokenExpiresIn: {
+      type: Date,
+      default: null,
+      select: false,
+    },
   },
   { timestamps: true }
 );
